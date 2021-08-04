@@ -65,3 +65,5 @@ out/
 /front/yarn-debug.log*
 /front/yarn-error.log*
 
+
+.DS_Store
