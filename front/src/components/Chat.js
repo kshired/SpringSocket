@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as StompJs from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
 import Message from './Message';
@@ -10,6 +10,14 @@ function Chat() {
   const [connected, setConnected] = useState(false);
   const [username, setUsername] = useState('');
   const [start, setStart] = useState(false);
+
+  useEffect(() => {
+    if (start) {
+      let messageArea = document.querySelector('#messageArea');
+      messageArea.scrollTop = messageArea.scrollHeight;
+      console.log(messageArea.style.height);
+    }
+  }, [chatMessages]);
 
   const startConnection = () => {
     connect();
@@ -82,7 +90,7 @@ function Chat() {
 
   return (
     <>
-      {start === false ? (
+      {!start ? (
         <div id="username-page">
           <div className="username-page-container">
             <h1 className="title">username을 입력하세요</h1>

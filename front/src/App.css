@@ -5,7 +5,9 @@
 }
 
 html,
-body {
+body,
+#root,
+.App {
   height: 100%;
   overflow: hidden;
 }
@@ -26,10 +28,6 @@ body {
   display: block;
   content: '';
   clear: both;
-}
-
-.hidden {
-  display: none;
 }
 
 .form-control {
